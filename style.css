@@ -1,0 +1,79 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4fdfc;
+}
+
+.navbar {
+    background-color: #00695c;
+}
+
+.navbar-brand,
+.nav-link {
+    color: #fff !important;
+}
+
+.hero {
+    background: linear-gradient(to right, #43cea2, #185a9d);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section-title {
+    color: #00695c;
+    margin-bottom: 30px;
+}
+
+.project-card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.03);
+}
+
+.about-section {
+    padding: 60px 0;
+}
+
+.section-title {
+    color: #00695c;
+    margin-bottom: 30px;
+}
+
+.highlight {
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #004d40;
+    color: white;
+}
+
+.card:hover {
+    background-color: orange;
+}
+
+.skill-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.skill-card img {
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover img {
+    transform: rotate(-5deg) scale(1.1);
+}
