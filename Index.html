@@ -222,31 +222,35 @@
     </section>
     <!-- Contact Section -->
     <section id="contact" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <form id="contactForm" onsubmit="handleSubmit(event)">
-                <div class="mb-3">
-                    <label for="name" class="form-label">Your Name</label>
-                    <input type="text" class="form-control" autocomplete="name" id="name" name="name" required />
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Your Email</label>
-                    <input type="email" class="form-control" autocomplete="email" id="email" name="email" required />
-                </div>
-                <div class="mb-3">
-                    <label for="message" class="form-label">Message</label>
-                    <textarea class="form-control" id="message" name="message" rows="4" autocomplete="on"
-                        required></textarea>
-                </div>
-                <button type="submit" class="btn btn-success">Send Message</button>
-            </form>
+  <div class="container">
+    <h2 class="section-title">Get in Touch</h2>
+    <form action="https://formsubmit.co/narasimhulub155@email.com" method="POST">
+      <div class="mb-3">
+        <label for="name" class="form-label">Your Name</label>
+        <input type="text" class="form-control" autocomplete="name" id="name" name="name" required />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Your Email</label>
+        <input type="email" class="form-control" autocomplete="email" id="email" name="email" required />
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" id="message" name="message" rows="4" autocomplete="on" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-success">Send Message</button>
 
-            <!-- Success Message -->
-            <div id="successMessage" class="alert alert-success mt-4 d-none" role="alert">
-                Thank you! Your message has been sent successfully.
-            </div>
-        </div>
-    </section>
+      <!-- Hidden inputs for customization -->
+      <input type="hidden" name="_next" value="https://portfolionarasim.netlify.app/thank-you.html">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="New message from portfolio site">
+    </form>
+
+    <!-- Optional success message (only works with custom JS) -->
+    <div id="successMessage" class="alert alert-success mt-4 d-none" role="alert">
+      Thank you! Your message has been sent successfully.
+    </div>
+  </div>
+</section>
 
     <script>
         function handleSubmit(event) {
