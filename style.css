@@ -79,7 +79,7 @@ footer {
 }
 
 .banner {
-    background-image: url("3.jpg");
+    background-image: url("ai.jpg");
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -155,9 +155,9 @@ footer {
     position: absolute;
     top: 10%;
     right: 10%;
-    max-width: 300px;
+    max-width: 250px;
     height: auto;
-    border-radius: 50%;
+    border-radius: 50px;
     z-index: 1;
 }
 
