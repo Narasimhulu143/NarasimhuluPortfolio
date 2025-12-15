@@ -217,3 +217,36 @@ footer {
         translate: 0 0;
     }
 }
+/* 1. Main Card Hover Effect */
+.contact-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
+    border: 1px solid #ddd; /* Optional: defines the edge */
+}
+
+.contact-card:hover {
+    transform: translateY(-10px); /* Moves the card up slightly */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Adds a deep shadow */
+    border-color: #007bff; /* Optional: Changes border color */
+}
+
+/* 2. Table Row Hover Effect */
+.contact-table tr {
+    transition: background-color 0.2s ease;
+}
+
+.contact-table tr:hover {
+    background-color: #f8f9fa; /* Light gray highlight on row hover */
+}
+
+/* 3. Link Styling and Hover */
+.contact-link {
+    text-decoration: none;
+    color: #007bff; /* Bootstrap primary blue */
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+    color: #0056b3; /* Darker blue on hover */
+    text-decoration: underline;
+}

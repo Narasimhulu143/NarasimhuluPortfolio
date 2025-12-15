@@ -176,6 +176,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -260,50 +261,120 @@
 
     </section>
     <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <form action="https://formsubmit.co/narasimhulub155@email.com" method="POST">
-                <div class="mb-3">
-                    <label for="name" class="form-label">Your Name</label>
-                    <input type="text" class="form-control" autocomplete="name" id="name" name="name" required />
+    <section id="contact">
+        <div class="card w-75 mx-auto my-5 contact-card p-4">
+            <h3 class="text-center mt-3 mb-4">Contact Me</h3>
+            <div class="row">
+                <!-- Contact Info Side -->
+                <div class="col-md-6 border-end">
+                    <h4 class="text-center mb-4">Get In Touch</h4>
+                    <table class="table table-borderless contact-table">
+                        <tr>
+                            <th>Name :</th>
+                            <td>B.Narasimhulu</td>
+                        </tr>
+                        <tr>
+                            <th>Email :</th>
+                            <td>narasimhulub155@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <th>Phone :</th>
+                            <td>+91 7799584358</td>
+                        </tr>
+                        <tr>
+                            <th>GitHub :</th>
+                            <td>
+                                <a href="https://github.com/Narasimhulu143" class="contact-link" target="_blank">
+                                    github.com/Narasimhulu143
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Linkedin :</th>
+                            <td>
+                                <a href="https://www.linkedin.com/in/B-Narasimhulu4358/" class="contact-link"
+                                    target="_blank">
+                                    LinkedIn Profile
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Your Email</label>
-                    <input type="email" class="form-control" autocomplete="email" id="email" name="email" required />
-                </div>
-                <div class="mb-3">
-                    <label for="message" class="form-label">Message</label>
-                    <textarea class="form-control" id="message" name="message" rows="4" autocomplete="on"
-                        required></textarea>
-                </div>
-                <button type="submit" class="btn btn-success">Send Message</button>
 
-                <!-- Hidden inputs for customization -->
-                <input type="hidden" name="_next" value="https://portfolionarasim.netlify.app/thank-you.html">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_subject" value="New message from portfolio site">
-            </form>
+                <!-- Contact Form Side -->
+                <div class="col-md-6">
+                    <h4 class="text-center mb-4">Send a Message</h4>
+                    <form id="emailForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                        </div>
 
-            <!-- Optional success message (only works with custom JS) -->
-            <div id="successMessage" class="alert alert-success mt-4 d-none" role="alert">
-                Thank you! Your message has been sent successfully.
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Your Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" class="form-control" placeholder="Subject" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" class="form-control" rows="4"
+                                placeholder="Write your message here..." required></textarea>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </div>
+                    </form>
+                    <p id="status" class="mt-3 text-center"></p>
+                </div>
             </div>
+
+            <script>
+                document.getElementById("emailForm").addEventListener("submit", async (e) => {
+                    e.preventDefault();
+                    const name = document.getElementById("name").value;
+                    const email = document.getElementById("email").value;
+                    const subject = document.getElementById("subject").value;
+                    const message = document.getElementById("message").value;
+                    const statusText = document.getElementById("status");
+
+                    statusText.textContent = "Sending...";
+
+                    try {
+                        const res = await fetch("http://localhost:4000/send-email", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ name, email, subject, message })
+                        });
+
+                        if (res.ok) {
+                            statusText.textContent = "Sent ✅";
+                            statusText.className = "mt-3 text-center text-success fw-bold";
+                            document.getElementById("emailForm").reset();
+                        } else {
+                            statusText.textContent = "Failed ❌";
+                            statusText.className = "mt-3 text-center text-danger fw-bold";
+                        }
+                    } catch (error) {
+                        console.error(error);
+                        statusText.textContent = "Error connecting to server ❌";
+                        statusText.className = "mt-3 text-center text-danger fw-bold";
+                    }
+                });
+            </script>
         </div>
     </section>
 
-    <script>
-        function handleSubmit(event) {
-            event.preventDefault(); // Prevent actual form submission
-            document.getElementById('contactForm').reset(); // Clear form
-            document.getElementById('successMessage').classList.remove('d-none'); // Show message
-        }
-    </script>
 
     <!-- Footer -->
     <footer class="text-center py-4">
         <div class="container">
-            <p>&copy; 2025 Narasimhulu | Built with using Bootstrap</p>
+            <p>&copy; 2025 Narasimhulu | Portfolio </p>
         </div>
     </footer>
 
